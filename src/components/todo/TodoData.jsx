@@ -1,8 +1,17 @@
-const TodoData = () => {
+const TodoData = (props) => {
+    // {
+    //     name: 'Eric',
+    //     age: 25,
+    //     data:{}        
+    // }
+    const { name, age, data } = props;
+    console.log(">>> check props:", props);
+    
     return (
         <div className='todo-data'>
-        <div>Learning React</div>
-        <div>Watching Youtube</div>
+            <div>My name is { name }</div>
+            <div>Learning React</div>
+            <div>Watching Youtube</div>
         </div>
     );
 }
