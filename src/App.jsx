@@ -2,6 +2,7 @@ import './components/todo/todo.css'
 import TodoData from './components/todo/TodoData'
 import TodoNew from './components/todo/TodoNew'
 import reactLogo from './assets/react.svg'
+
 const App = () =>  {
   
   const hoidanit = "Eric";
@@ -10,11 +11,16 @@ const App = () =>  {
     address: "Hanoi",
     country: "Vietnam"
   }
+  const addNewTodo = (name) => {
+    alert(`call me ${name}`);
+  }
 
   return (
     <div className="todo-container">
       <div className="todo-title">Todo List</div>
-      <TodoNew />
+      <TodoNew
+        addNewTodo={addNewTodo}
+      />
       <TodoData
         name={hoidanit}
         age={age}
