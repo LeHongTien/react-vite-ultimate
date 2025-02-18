@@ -15,7 +15,6 @@ const UpdateUserModal = (props) => {
     } = props;
     
     useEffect(() => {
-        console.log(">>> check  dataUpdate props: ", dataUpdate)
         if (dataUpdate) {
             setId(dataUpdate._id)
             setFullName(dataUpdate.fullName)
