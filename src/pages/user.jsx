@@ -10,7 +10,7 @@ const UserPage = () => {
     const [total, setTotal] = useState(0);
     useEffect(() => { 
       loadUser()
-    }, []);
+    }, [current, pageSize]);
     
     const loadUser = async () => {
         const res = await fetchAllUserAPI(current, pageSize)
@@ -21,7 +21,7 @@ const UserPage = () => {
             setTotal(res.data.meta.total)
         }
     }
-    
+    console.log(">>> check current", pageSize)
     return (
         <div style={{padding: '20px'}}>
             <UserForm
