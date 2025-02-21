@@ -21,7 +21,6 @@ const UserPage = () => {
             setTotal(res.data.meta.total)
         }
     }
-    console.log(">>> check current", pageSize)
     return (
         <div style={{padding: '20px'}}>
             <UserForm
