@@ -2,6 +2,7 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button, Popconfirm, Table } from "antd";
 import { useEffect, useState } from "react";
 import { fetchAllBookAPI } from "../../services/api.service";
+import BookDetail from "./book.detail";
 
 const BookTable = () => {
 
@@ -132,31 +133,36 @@ const BookTable = () => {
 
     return (
         <>
-            <div style={{
-                marginTop: "10px",
-                display: "flex",
-                justifyContent: "space-between"
-            }}>
-                <h3>Table Book</h3>
-                <Button type="primary">Create Book</Button>
-            </div>
+          <div style={{
+              marginTop: "10px",
+              display: "flex",
+              justifyContent: "space-between"
+          }}>
+              <h3>Table Book</h3>
+              <Button type="primary">Create Book</Button>
+          </div>
 
-            <Table
-                columns={columns}
-                dataSource={dataBook}
-                rowKey={"_id"}
-                pagination={
-                    {
-                        current: current,
-                        pageSize: pageSize,
-                        showSizeChanger: true,
-                        total: total,
-                        showTotal: (total, range) => { return (<div> {range[0]}-{range[1]} trên {total} rows</div>) }
-                    }
+          <Table
+            columns={columns}
+            dataSource={dataBook}
+            rowKey={"_id"}
+            pagination={
+                {
+                    current: current,
+                    pageSize: pageSize,
+                    showSizeChanger: true,
+                    total: total,
+                    showTotal: (total, range) => { return (<div> {range[0]}-{range[1]} trên {total} rows</div>) }
                 }
-                onChange={onChange}
-
-            />
+            }
+            onChange={onChange}
+          />
+          <BookDetail
+            dataDetail={dataDetail}
+            setDataDetail={setDataDetail}
+            isDetailOpen={isDetailOpen}
+            setIsDetailOpen={setIsDetailOpen}
+          />
         </>
     )
 }
